@@ -55,10 +55,7 @@ public class Main {
                 }
             } else {
                 for (int j = size; j < 7; j++) {
-                    String inputNew = input.charAt(i) + " = " + "0" + Integer.toBinaryString(number);
-                    System.out.println(inputNew);
-                    /*                String inputNew = input.charAt(i) + " = " + Integer.toBinaryString(number);
-                System.out.println(inputNew);*/
+                    System.out.println(input.charAt(i) + " = " + "0" + Integer.toBinaryString(number));
                     String variableNew = "0" + Integer.toBinaryString(number);
                     if (i == 0 && (variableNew.charAt(0) - 48) == 1) {
                         System.out.print(0 + " " + 0);
@@ -66,20 +63,20 @@ public class Main {
                         System.out.print(0 + "0 " + 0);
                     }
                     int i1 = ("0" + Integer.toBinaryString(input.charAt(i - 1))).charAt(variableNew.length() - 1) - 48;
-                    if (( i != 0 && (variableNew.charAt(0) - 48) == 1)) {
+                    if ((i != 0 && (variableNew.charAt(0) - 48) == 1)) {
                         if (i1 != 1) {
                             System.out.print(" " + 0 + " " + 0);
                         } else {
                             System.out.print(0);
                         }
-                    }else if ( i != 0 && variableNew.charAt(0) - 48 == 0) {
+                    } else if (i != 0 && variableNew.charAt(0) - 48 == 0) {
                         if (i1 != 0) {
                             System.out.print(" " + 0 + "0 " + 0);
                         } else {
                             System.out.print(0);
                         }
                     }
-                    for (int k = 1; j < variableNew.length(); k++) {
+                    for (int k = 1; k < variableNew.length(); k++) {
                         char variable = variableNew.charAt(k);
                         int integer_variable = variable - 48;
                         int i2 = variableNew.charAt(j - 1) - 48;
@@ -96,11 +93,11 @@ public class Main {
                                 System.out.print(0);
                             }
                         }
+
+
                     }
-                }
-
-
                 }
             }
         }
     }
+}
