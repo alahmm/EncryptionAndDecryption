@@ -18,13 +18,24 @@ public class Main {
             if (size == 7) {
 /*                String inputNew = input.charAt(i) + " = " + Integer.toBinaryString(number);
                 System.out.println(inputNew);*/
-                if ((Integer.toBinaryString(number).charAt(0) - 48) == 1) {
+                if (i == 0 && (Integer.toBinaryString(number).charAt(0) - 48) == 1) {
                     System.out.print(0 + " " + 0);
-                } else {
+                } else if (i == 0 && (Integer.toBinaryString(number).charAt(0) - 48) == 0) {
                     System.out.print(0 + "0 " + 0);
                 }
-
-
+                if ((i != 0 && (Integer.toBinaryString(input.charAt(i)).charAt(0) - 48) == 1)) {
+                    if ((Integer.toBinaryString(input.charAt(i - 1)).charAt(Integer.toBinaryString(number).length() - 1) - 48) != 1) {
+                        System.out.print(" " + 0 + " " + 0);
+                    } else {
+                        System.out.print(0);
+                    }
+                } else if (i != 0 && (Integer.toBinaryString(input.charAt(i)).charAt(0) - 48) == 0) {
+                    if ((Integer.toBinaryString(input.charAt(i - 1)).charAt(Integer.toBinaryString(number).length() - 1) - 48) != 0) {
+                        System.out.print(" " + 0 + "0 " + 0);
+                    } else {
+                        System.out.print(0);
+                    }
+                }
                 for (int j = 1; j < Integer.toBinaryString(number).length(); j++) {
                     char variable = Integer.toBinaryString(number).charAt(j);
                     int integer_variable = variable - 48;
@@ -34,7 +45,7 @@ public class Main {
                         } else {
                             System.out.print(0);
                         }
-                    } else if ((Integer.toBinaryString(number).charAt(j) - 48) == 0) {
+                    } else if (integer_variable == 0) {
                         if ((Integer.toBinaryString(number).charAt(j - 1) - 48) != 0) {
                             System.out.print(" " + 0 + "0 " + 0);
                         } else {
@@ -44,35 +55,52 @@ public class Main {
                 }
             } else {
                 for (int j = size; j < 7; j++) {
-/*                    String inputNew = input.charAt(i) + " = " + "0" + Integer.toBinaryString(number);
-                    System.out.println(inputNew);*/
-                    String test = "0" + Integer.toBinaryString(number);
-                    if ((test.charAt(0) - 48) == 1) {
+                    String inputNew = input.charAt(i) + " = " + "0" + Integer.toBinaryString(number);
+                    System.out.println(inputNew);
+                    /*                String inputNew = input.charAt(i) + " = " + Integer.toBinaryString(number);
+                System.out.println(inputNew);*/
+                    String variableNew = "0" + Integer.toBinaryString(number);
+                    if (i == 0 && (variableNew.charAt(0) - 48) == 1) {
                         System.out.print(0 + " " + 0);
-                    } else {
+                    } else if (i == 0 && (variableNew.charAt(0) - 48) == 0) {
                         System.out.print(0 + "0 " + 0);
                     }
-                    for (int k = 1; k < test.length(); k++) {
-                        char variable = test.charAt(k);
+                    int i1 = ("0" + Integer.toBinaryString(input.charAt(i - 1))).charAt(variableNew.length() - 1) - 48;
+                    if (( i != 0 && (variableNew.charAt(0) - 48) == 1)) {
+                        if (i1 != 1) {
+                            System.out.print(" " + 0 + " " + 0);
+                        } else {
+                            System.out.print(0);
+                        }
+                    }else if ( i != 0 && variableNew.charAt(0) - 48 == 0) {
+                        if (i1 != 0) {
+                            System.out.print(" " + 0 + "0 " + 0);
+                        } else {
+                            System.out.print(0);
+                        }
+                    }
+                    for (int k = 1; j < variableNew.length(); k++) {
+                        char variable = variableNew.charAt(k);
                         int integer_variable = variable - 48;
+                        int i2 = variableNew.charAt(j - 1) - 48;
                         if (integer_variable == 1) {
-                            if ((test.charAt(k - 1) - 48) != 1) {
+                            if (i2 != 1) {
                                 System.out.print(" " + 0 + " " + 0);
                             } else {
                                 System.out.print(0);
                             }
-                        } else if ((test.charAt(k) - 48) == 0) {
-                            if ((test.charAt(k - 1) - 48) != 0) {
+                        } else if (integer_variable == 0) {
+                            if (i2 != 0) {
                                 System.out.print(" " + 0 + "0 " + 0);
                             } else {
                                 System.out.print(0);
                             }
                         }
                     }
-
                 }
 
+
+                }
             }
         }
     }
-}
