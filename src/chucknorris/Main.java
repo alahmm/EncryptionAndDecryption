@@ -18,16 +18,7 @@ public class Main {
         return inputNew.toString();
 
     }
-
-    public static void main(String[] args) {
-        System.out.println("Input string:");
-        Scanner scanner = new Scanner(System.in);
-        String input1 = scanner.nextLine();
-        String result = """
-                                
-                The result:""";
-        System.out.println(result);
-        String input = ConvertStringToBinaryString(input1);
+    public static  void ConvertBinaryToCipher (String input) {
         for (int i = 0; i < input.length(); i++) {
             char character = input.charAt(i);
             int number = character - 48;
@@ -56,5 +47,18 @@ public class Main {
                 }
             }
         }
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Input string:");
+        Scanner scanner = new Scanner(System.in);
+        String input1 = scanner.nextLine();
+        String result = """
+                                
+                The result:""";
+        System.out.println(result);
+        String input = ConvertStringToBinaryString(input1);
+        ConvertBinaryToCipher(input);
+
     }
 }
