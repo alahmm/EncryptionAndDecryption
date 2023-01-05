@@ -10,17 +10,45 @@ public class DecoderForACipher {
         for (int i = 1; i < listOfStrings.length; i += 2) {
             if (listOfStrings[i - 1].equals("0")) {
                 for (int j = 0; j < listOfStrings[i].length(); j++) {
-                    System.out.print("1");
+                    //System.out.print("1");
                     inputNew.append("1");
                 }
             } else if (listOfStrings[i - 1].equals("00")) {
                 for (int j = 0; j < listOfStrings[i].length(); j++) {
-                    System.out.print("0");
+                    //System.out.print("0");
                     inputNew.append("0");
                 }
             }
         }
         return  inputNew.toString();
+    }
+    public static char ConvertBinaryToChar(String input){
+        int counter = 0;
+        for (int i = 0; i < input.length(); i++) {
+            char character = input.charAt(i);
+            int number = character - 48;
+            if (number == 1) {
+                counter += Math.pow(2, input.length() - 1 - i);
+            }
+        }
+        return (char) counter;
+    }
+    public static void ConvertBinaryToString(String input) {
+        char [] characters = new char[input.length() / 7];
+        if ((input.length() % 7) == 0) {
+            int substringSize = 7;
+            ArrayList<String> listOfSubstrings = new ArrayList<>();
+            for (int i = 0; i < input.length(); i += substringSize) {
+                String element = input.substring(i, Math.min(i + substringSize, input.length()));
+                listOfSubstrings.add(element);
+            }
+            for (String variable : listOfSubstrings
+                 ) {
+                char character = ConvertBinaryToChar(variable);
+                System.out.print(character);
+
+            }
+        }
     }
 
     public static void main(String[] args) {
@@ -31,6 +59,6 @@ public class DecoderForACipher {
                                 
                 The result:""";
         System.out.println(result);
-        ConvertCipherToBinary(input1);
+        ConvertBinaryToString(ConvertCipherToBinary(input1));
     }
 }
