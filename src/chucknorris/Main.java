@@ -3,19 +3,19 @@ package chucknorris;
 import java.util.Scanner;
 public class Main {
     public static String ConvertStringToBinaryString(String input) {
-        String inputNew = "";
+        StringBuilder inputNew = new StringBuilder();
         for (int i = 0; i < input.length(); i++) {
             int number = input.charAt(i);
             int size = Integer.toBinaryString(number).length();
             if (size == 7) {
-                inputNew += Integer.toBinaryString(number);
+                inputNew.append(Integer.toBinaryString(number));
             } else {
                 for (int j = size; j < 7; j++) {
-                    inputNew += "0" + Integer.toBinaryString(number);
+                    inputNew.append("0").append(Integer.toBinaryString(number));
                 }
             }
         }
-        return inputNew;
+        return inputNew.toString();
 
     }
 
