@@ -1,6 +1,7 @@
 package chucknorris;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 public class DecoderForACipher {
 
@@ -10,12 +11,10 @@ public class DecoderForACipher {
         for (int i = 1; i < listOfStrings.length; i += 2) {
             if (listOfStrings[i - 1].equals("0")) {
                 for (int j = 0; j < listOfStrings[i].length(); j++) {
-                    //System.out.print("1");
                     inputNew.append("1");
                 }
             } else if (listOfStrings[i - 1].equals("00")) {
                 for (int j = 0; j < listOfStrings[i].length(); j++) {
-                    //System.out.print("0");
                     inputNew.append("0");
                 }
             }
@@ -33,8 +32,7 @@ public class DecoderForACipher {
         }
         return (char) counter;
     }
-    public static void ConvertBinaryToString(String input) {
-        char [] characters = new char[input.length() / 7];
+/*    public static void ConvertBinaryToString(String input) {
         if ((input.length() % 7) == 0) {
             int substringSize = 7;
             ArrayList<String> listOfSubstrings = new ArrayList<>();
@@ -43,11 +41,42 @@ public class DecoderForACipher {
                 listOfSubstrings.add(element);
             }
             for (String variable : listOfSubstrings
-                 ) {
+            ) {
                 char character = ConvertBinaryToChar(variable);
                 System.out.print(character);
 
             }
+        }
+        else {
+            int substringSize = 7;
+            ArrayList<String> listOfSubstrings = new ArrayList<>();
+            for (int i = input.length(); i >= 0; i -= substringSize) {
+                String element = input.substring(i - 7, i);
+                listOfSubstrings.add(element);
+            }
+            Collections.reverse(listOfSubstrings);
+            for (String variable : listOfSubstrings
+            ) {
+                char character = ConvertBinaryToChar(variable);
+                System.out.print(character);
+
+            }
+
+        }
+    }*/
+    public static void ConvertBinaryToString(String input) {
+        int substringSize = 7;
+        ArrayList<String> listOfSubstrings = new ArrayList<>();
+        for (int i = input.length(); i > 0; i -= substringSize) {
+            String element = input.substring(i - 7, i);
+            listOfSubstrings.add(element);
+        }
+        Collections.reverse(listOfSubstrings);
+        for (String variable : listOfSubstrings
+        ) {
+            char character = ConvertBinaryToChar(variable);
+            System.out.print(character);
+
         }
     }
 
